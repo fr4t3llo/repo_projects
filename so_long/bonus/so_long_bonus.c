@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 10:24:49 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 19:54:43 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:44:35 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,27 +73,38 @@ int	ft_arg(char **av)
 	else
 		return (0);
 }
-void animate_coin(t_map *t)
-{
-	t->i = 1;
-	while (t->i <= 100)
-	{
-		t->collect = mlx_xpm_file_to_image(t->mlx_ptr, "./xpmfile/coin.xpm", &(t->width), &(t->height));
-		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->back, t->x, t->y);
-		t->enemy = mlx_xpm_file_to_image(t->mlx_ptr, "./xpmfile/enemy2.xpm", &(t->width), &(t->height));
-		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->back, t->x, t->y);
-	}
-	t->i = 0;
-	t->i++;
-}
-int animation(t_map *t)
-{
-	int i;
 
-	i = 0;
-	while (i == 0)
-		animate_coin(t);
+int	animate_coins(t_map *t)
+{
+	if (t->counter <= 5)
+		t->collect = mlx_xpm_file_to_image(t->mlx_ptr,
+				"./xpmfile/coin.xpm", &t->width, &t->height);
+	else if (t->counter <= 10)
+		t->collect = mlx_xpm_file_to_image(t->mlx_ptr,
+				"./xpmfile/coin1.xpm", &t->width, &t->height);
+	else if (t->counter <= 15)
+		t->collect = mlx_xpm_file_to_image(t->mlx_ptr,
+				"./xpmfile/coin2.xpm", &t->width, &t->height);
+	else if (t->counter <= 20)
+		t->collect = mlx_xpm_file_to_image(t->mlx_ptr,
+				"./xpmfile/coin3.xpm", &t->width, &t->height);
+	else if (t->counter <= 25)
+		t->collect = mlx_xpm_file_to_image(t->mlx_ptr,
+				"./xpmfile/coin4.xpm", &t->width, &t->height);
+	else if (t->counter > 26)
+		t->counter = 0;
+	t->counter++;
+	draw_map(t);
 	return (0);
+}
+void steps(t_map *t)
+{
+	char *str;
+	
+	str = ft_itoa(t->moves);
+	mlx_string_put(t->mlx_ptr, t->mlx_win, 20, 20, 0x000FFF, str);
+	printf("heyy bro \n");
+	free(str);
 }
 
 int	main(int ac, char **av)
@@ -115,12 +126,12 @@ int	main(int ac, char **av)
 	ft_read_so_long(&t, av);
 	check_content(&t);
 	check_walls(t.str);
-	// ft_check_collect()
 	ft_draw_map(&t);
+	steps(&t);
 	mlx_key_hook(t.mlx_win, ft_move, &t);
-	mlx_string_put(t.mlx_ptr, t.mlx_win, 15, 15, 0x0000000, "hello !!");
 	mlx_hook(t.mlx_win, 17, 0, ft_close, &t);
+	t.counter = 0;
+	mlx_loop_hook(t.mlx_ptr, animate_coins, &t);
 	mlx_loop(t.mlx_ptr);
-	mlx_loop_hook(t.mlx_ptr, animation, &t);
 	return (0);
 }

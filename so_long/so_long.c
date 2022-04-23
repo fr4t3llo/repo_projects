@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 10:24:49 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 06:04:25 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:39:55 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_read_so_long(t_map *t, char **av)
 	t->fd = open(av[1], O_RDONLY);
 	if (t->fd < 0)
 	{
-		ft_printf("\033[0;31mfile not found !!");
+		ft_printf("\033[0;31mfile not found !!\n");
 		exit(1);
 	}
 	t->tab = get_next_line(t->fd);
@@ -82,7 +82,7 @@ int	main(int ac, char **av)
 	t.moves = 1;
 	if (ac != 2)
 	{
-		printf("eroor argument !!");
+		ft_printf("ERR0R argument !!");
 		exit(1);
 	}
 	if (ft_arg(av) == 0)
@@ -93,7 +93,7 @@ int	main(int ac, char **av)
 	ft_read_so_long(&t, av);
 	check_content(&t);
 	check_walls(t.str);
-	// ft_check_collect()
+	check_the_one(t.str);
 	ft_draw_map(&t);
 	mlx_key_hook(t.mlx_win, ft_move, &t);
 	mlx_hook(t.mlx_win, 17, 0, ft_close, &t);

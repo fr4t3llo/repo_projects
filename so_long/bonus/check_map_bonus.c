@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:09:44 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/16 18:28:07 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 06:22:33 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ void	check_content(t_map *t)
 		}
 	t->j--;
 	}
-	if (t->p != 1 || t->e < 1 || t->c < 1 )
+	if (t->p != 1 || t->e < 1 || t->c < 1)
 	{
 		ft_printf("Error content !!");
 		ft_close(t);
 	}
 }
 
-int	check_the_one(char **str)
+void	check_the_one(char **str)
 {
 	int	j;
 	int	k;
@@ -79,10 +79,12 @@ int	check_the_one(char **str)
 	while (k != check_len_first(str))
 	{
 		if (!(str[k][0] == '1' && str[k][j] == '1'))
-			return (0);
+		{
+			ft_printf("Error walls !!");
+			exit(1);
+		}
 		k++;
 	}
-	return (1);
 }
 
 int	check_walls(char **str)

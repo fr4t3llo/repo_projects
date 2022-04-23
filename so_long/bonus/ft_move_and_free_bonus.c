@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 13:09:17 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/16 18:28:18 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 06:23:14 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_free(t_map *t)
 int	ft_close(t_map *t)
 {
 	ft_free(t);
+	ft_printf("=== GAME END ===\n");
 	exit(0);
 	return (0);
 }
@@ -36,14 +37,13 @@ int	ft_move(int keycode, t_map *t)
 {
 	if (keycode == 53)
 		ft_close(t);
-	else if (keycode == 13 || keycode == 126)
+	else if (keycode == 13)
 		ft_move_up(t);
-	else if (keycode == 1 || keycode == 125)
+	else if (keycode == 1)
 		ft_move_down(t);
-	else if (keycode == 0 || keycode == 123)
+	else if (keycode == 0)
 		ft_move_left(t);
-	else if (keycode == 2 || keycode == 124)
+	else if (keycode == 2)
 		ft_move_right(t);
-	draw_map(t);
 	return (0);
 }

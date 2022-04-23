@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 14:15:10 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 20:02:17 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:16:42 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,18 @@ int	ft_move_right1(t_map *t, int i, int j)
 	{
 		t->str[i][j + 1] = 'P';
 		t->str[i][j] = '0';
-		ft_printf("\033[0;33mMOVES : %d\n", t->moves);
-		mlx_string_put(t->mlx_ptr, t->mlx_win, 15, 15, 0x0000000, "hello !!");
 		t->moves++;
 		return (0);
 	}
 	if (t->str[i][j + 1] == 'N')
 	{
-		ft_printf("\033[0;33mYou Lost !!");
+		ft_printf("\033[0;33m=== GAME OVER !! ===\n");
 		exit(1);
 	}
 	if (t->str[i][j + 1] == 'C')
 	{
 		t->str[i][j + 1] = 'P';
 		t->str[i][j] = '0';
-		ft_printf("\033[0;33mMOVES : %d\n", t->moves);
-		mlx_string_put(t->mlx_ptr, t->mlx_win, 15, 15, 0x0000000, "hello !!");
 		t->moves++;
 		return (0);
 	}
@@ -77,22 +73,18 @@ int	ft_move_down1(t_map *t, int i, int j)
 	{
 		t->str[i + 1][j] = 'P';
 		t->str[i][j] = '0';
-		ft_printf("\033[0;33mMOVES : %d\n", t->moves);
-		mlx_string_put(t->mlx_ptr, t->mlx_win, 15, 15, 0x0000000, "hello !!");
 		t->moves++;
 		return (0);
 	}
 	if (t->str[i + 1][j] == 'N')
 	{
-		ft_printf("\033[0;33mYou Lost !!");
+		ft_printf("\033[0;33m=== GAME OVER !! ===\n");
 		exit(1);
 	}
 	else if (t->str[i + 1][j] == 'C')
 	{
 		t->str[i + 1][j] = 'P';
 		t->str[i][j] = '0';
-		ft_printf("\033[0;33mMOVES : %d\n", t->moves);
-		mlx_string_put(t->mlx_ptr, t->mlx_win, 15, 15, 0x0000000, "hello !!");
 		t->moves++;
 		return (0);
 	}

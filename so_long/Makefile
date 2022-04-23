@@ -6,7 +6,7 @@
 #    By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 18:32:07 by skasmi            #+#    #+#              #
-#    Updated: 2022/04/16 18:43:27 by skasmi           ###   ########.fr        #
+#    Updated: 2022/04/23 07:39:17 by skasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CFLAGS=-Wall -Wextra -Werror
 NAME=so_long
 
 SRCS=so_long.c check_map.c get_next_line.c \
-		move_1.c move_2.c draw_map.c ft_move_and_free.c \
-		ft_printf.c ft_printf_function.c\
+	 move_1.c move_2.c draw_map.c ft_move_and_free.c \
+	 ft_printf.c ft_printf_function.c \
 
-BSRCS= bonus/so_long_bonus.c bonus/check_map_bonus.c bonus/get_next_line_bonus.c \
-		bonus/move_1_bonus.c bonus/move_2_bonus.c bonus/draw_map_bonus.c bonus/ft_move_and_free_bonus.c \
-		bonus/ft_printf_bonus.c bonus/ft_printf_function_bonus.c\
+BSRCS=bonus/so_long_bonus.c bonus/check_map_bonus.c bonus/get_next_line_bonus.c \
+	bonus/move_1_bonus.c bonus/move_2_bonus.c bonus/draw_map_bonus.c bonus/ft_move_and_free_bonus.c \
+	bonus/ft_printf_bonus.c bonus/ft_printf_function_bonus.c bonus/ft_itoa.c \
 		
 BOBJCTS=$(BSRCS:%.c=%.o)
 

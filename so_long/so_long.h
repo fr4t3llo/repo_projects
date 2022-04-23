@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 18:32:02 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 06:21:49 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:38:57 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ char	*ft_strchr(char *s, int c);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s1);
 int		check_len_first(char **str);
-void		check_content(t_map *t);
+void	check_content(t_map *t);
 int		check_len(char **str);
 int		check_walls(char **str);
+void	check_the_one(char **str);
 int		ft_check_collect(t_map *t);
 int		ft_move(int keycode, t_map *t);
 int		ft_close(t_map *t);

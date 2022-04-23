@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 12:53:18 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 06:32:30 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:38:42 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ void	ft_drawmap(t_map *t)
 	}
 	else if (t->str[t->i][t->j] == 'P')
 		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->player, t->x, t->y);
-	else if (t->str[t->i][t->j] == 'N')
-	{
-		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->back, t->x, t->y);
-		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->enemy, t->x, t->y);
-	}
 	else if (t->str[t->i][t->j] == 'E')
 	{
 		mlx_put_image_to_window(t->mlx_ptr, t->mlx_win, t->back, t->x, t->y);
@@ -75,13 +70,10 @@ void	draw2(t_map *t)
 			"./xpmfile/coin.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
 	t->exit = mlx_xpm_file_to_image(t->mlx_ptr,
-			"./xpmfile/exit.xpm", &(t->width), &(t->height));
+			"./xpmfile/exit_final.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
 	t->back = mlx_xpm_file_to_image(t->mlx_ptr,
 			"./xpmfile/background.xpm", &(t->width), &(t->height));
-	ft_checkk(t);
-	t->enemy = mlx_xpm_file_to_image(t->mlx_ptr,
-			"./xpmfile/enemy2.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
 }
 

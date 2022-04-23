@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 12:53:18 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 07:12:14 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:41:37 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	draw_map(t_map *t)
 void	draw2(t_map *t)
 {
 	t->mlx_win = mlx_new_window(t->mlx_ptr, check_len(t->str) * 64,
-			check_len_first(t->str) * 64, "so_long...");
+			check_len_first(t->str) * 64, "so_long");
 	t->player = mlx_xpm_file_to_image(t->mlx_ptr,
 			"./xpmfile/player3.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
@@ -75,7 +75,7 @@ void	draw2(t_map *t)
 			"./xpmfile/coin.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
 	t->exit = mlx_xpm_file_to_image(t->mlx_ptr,
-			"./xpmfile/exit.xpm", &(t->width), &(t->height));
+			"./xpmfile/exit_final.xpm", &(t->width), &(t->height));
 	ft_checkk(t);
 	t->back = mlx_xpm_file_to_image(t->mlx_ptr,
 			"./xpmfile/background.xpm", &(t->width), &(t->height));
@@ -103,5 +103,4 @@ void	ft_draw_map(t_map *t)
 		exit(1);
 	}
 	draw2(t);
-	draw_map(t);
 }

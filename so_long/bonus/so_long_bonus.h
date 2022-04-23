@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 18:32:02 by skasmi            #+#    #+#             */
-/*   Updated: 2022/04/18 19:51:38 by skasmi           ###   ########.fr       */
+/*   Updated: 2022/04/23 07:21:25 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_mmap
 	int		fd;
 	int		x;
 	int		y;
+	int		counter;
 	char	**str;
 	char	*tab;
 	int		i;
@@ -50,9 +51,7 @@ typedef struct s_mmap
 }	t_map;
 
 char	*ft_line(char *str);
-void	animate_coin(t_map *t);
 char	*ft_read(char *str, int fd);
-int		animation(t_map *t);
 int		ft_printf(const char *format, ...);
 void	print(char c, va_list cp, int *s);
 int		ft_printf(const char *format, ...);
@@ -67,7 +66,7 @@ char	*ft_strchr(char *s, int c);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s1);
 int		check_len_first(char **str);
-void		check_content(t_map *t);
+void	check_content(t_map *t);
 int		check_len(char **str);
 int		check_walls(char **str);
 int		ft_check_collect(t_map *t);
@@ -89,5 +88,10 @@ void	draw_map(t_map *t);
 void	ft_free(t_map *t);
 int		ft_move(int keycode, t_map *t);
 void	ft_checkk(t_map *t);
+int		animate_coins(t_map *t);
+int		calc_size(long int n);
+char	*sep_num(char *str,	int n,	int size);
+char	*ft_itoa(int n);
+char	*ft_strdup(char *s1);
 
 #endif
