@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/skasmi/Desktop/push_swap copy 2'
+CC -Wall -Wextra -Werror   push_swap.o check_numbers.o ft_double.o move.o check_sorted.o move2.o move3.o ft_sorting.o ft_sorting2.o ft_big_sort.o ft_printf_utils.o ft_printf.o ft_putstr_fd.o ft_split.o -o push_swap
+ 
+make: Leaving directory `/Users/skasmi/Desktop/push_swap copy 2'
+ 
